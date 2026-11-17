@@ -1,0 +1,144 @@
+tarea 4.1
+
+
+Escribir la función con el nombre dado en cada número. Debe recibir los parámetros indicados (input) y regrese el valor indicado (output).
+Para los problemas 1-3 hay que probar la función con los ejemplos mostrados, para los 4-6 hay que hacer sus propios casos de prueba y explicar un poco para qué hacen la prueba (ver ejemplo en el problema 1). Está permitido usar código que hemos hecho en clase y los métodos de strings, pero tienen que hacer su propia función con el nombre que se pide.
+
+(1.5 puntos)
+1. MiEsDigito
+Input: un string
+Output: indicando si el string se compone de puros números
+MiEsDigito("90818") == True #solo numeros
+MiEsDigito("mna") == False #solo letras
+MiEsDigito("180a") == False #letar al final
+MiEsDigito("4a46") == False #letra a la mitad
+
+def MiEsDigito(texto):
+    if (texto) == "":
+        return False
+    for caracter in texto:
+        if caracter < "0" or caracter > "9":
+            return False
+    return True
+
+print(MiEsDigito("90818"))  # True  # probamos si funciona con puros números
+print(MiEsDigito("mna"))  # False # probamos si funciona con puras letras
+print(MiEsDigito("180a"))  # False # probamos si hay números y letras
+print(MiEsDigito("4a46"))  # False # probamos que la letra esté a la mitad de los números
+
+
+(1.5 puntos)
+2. MiConteo
+Input: dos strings, el segundo es sólo un caracter
+Output: un entero con el número de veces que aparece el segundo string en el primer string
+
+MiConteo("hola mundo","o") == 2
+MiConteo("hola mundo","h") == 1
+MiConteo("hola mundo"," ") == 1
+MiConteo("hola mundo","r") == 0
+MiConteo("hola mundo","!") == 0
+MiConteo("hola mundo","") == 0
+MiConteo("","A") == 0
+
+def MiConteo(texto, caracter):
+    if caracter == "":
+        return 0
+    contador = 0
+    for letra in texto:
+        if letra == caracter:
+            contador += 1
+    return contador
+
+print(MiConteo("hola mundo", "o") == 2)   # un caracter que aparece varias veces
+print(MiConteo("hola mundo", "h") == 1)   # un caracter que aparece una vez
+print(MiConteo("hola mundo", " ") == 1)   # contar espacios
+print(MiConteo("hola mundo", "r") == 0)   # una letra que no está en el texto
+print(MiConteo("hola mundo", "!") == 0)   # un símbolo que no está en el texto
+print(MiConteo("hola mundo", "") == 0)    # el segundo string vacío
+print(MiConteo("", "A") == 0)             # el primer string vacío
+
+
+
+(2 puntos)
+3. GCcontent
+Input: un string con una secuencia de ADN
+Output: porcentaje de caracteres que son "G" ó "C"
+GCcontent("ATGC") == .5
+GCcontent("") == 0
+GCcontent("AAAA") == 0
+GCcontent("ATgc") == .5
+GCcontent("GGCC") == 1
+
+def GCcontent(secuencia):
+    total = len(secuencia)
+    if total == 0:
+        return 0
+    cuenta = 0
+    for base in secuencia:
+        if base == "G" or base == "C" or base == "g" or base == "c":
+            cuenta += 1
+    return cuenta / total
+
+print(GCcontent("ATGC") == .5)   # mitad de las bases son G o C
+print(GCcontent("") == 0)        # secuencia vacía (evita dividir entre 0)
+print(GCcontent("AAAA") == 0)    # ninguna base es G o C
+print(GCcontent("ATgc") == .5)   # minúsculas también cuentan
+print(GCcontent("GGCC") == 1)    # todas las bases son G o C
+
+
+
+(2 puntos)
+4. MiSwapCase
+
+Input: un string
+Output: un string que invierta las mayúsculas y minúsculas
+
+def MiSwapCase(texto):
+    resultado = ""
+    for letra in texto:
+        if letra.isupper():
+            resultado += letra.lower()
+        elif letra.islower():
+            resultado += letra.upper()
+        else:
+            resultado += letra
+    return resultado
+
+print(MiSwapCase("Hola") == "hOLA")  
+print(MiSwapCase("casa") == "CASA") 
+print(MiSwapCase("CASA") == "casa")  
+
+
+(1 punto)
+5. MiCapitalize
+
+Input: un string
+Output: un string que tenga la primera letra en mayúsculas
+
+def MiCapitalize(texto):
+    if texto == "":
+        return ""
+    resultado = texto[0].upper()
+    for i in range(1, len(texto)):
+        resultado += texto[i].lower()
+    return resultado
+
+print(MiCapitalize("perro") == "Perro")  
+print(MiCapitalize("PERRO") == "Perro")  
+print(MiCapitalize("") == "")            
+
+(2 puntos)
+6. Es Par
+
+Input: Un número entero
+Output: Imprime si el número es par o impar, no debe regresar nada
+
+def EsPar(numero):
+    if numero % 2 == 0:
+        print("El número es par")
+    else:
+        print("El número es impar")
+
+EsPar(8)  
+EsPar(9)   
+EsPar(0)  
