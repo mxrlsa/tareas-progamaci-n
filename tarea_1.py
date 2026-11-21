@@ -1,0 +1,87 @@
+tarea_1.1
+
+1. Cómo podemos concatenar un número a un string? (.5 punto)
+para poder concatenar un número con un string, debemos convertir el número a un texto usando str()
+
+edad = 28
+print("Tengo " + str(edad) + " años")
+
+2. De qué tipo son las variables justifica la respuesta (1.5 puntos)
+ a = "1" es un str porque esta entre comillas
+ b = 1.0  es un float porque tiene punto décimal
+ c = 1.5 + True es un float por que porque true es igual a 1, entonces la operación nos da 2.5 por lo tanto cumple el requisito de un float por el punto décimal
+ d = 1.5 + 2.5 porque true es igual a 1, entonces la operación nos da 2.5 por lo tanto cumple el requisito de un float por el punto décimal
+ e = 1 + True es un int por que true equvale a 1, entonces 1+1=2
+ f = False + True es un int por que true equvale a 1, entonces 1+1=2
+ g = True * 0 int porque true equivale a 1, 1*0=0 
+
+
+3. Manipulando la variable palabra (concatenando y con los métodos de strings), convertirla (2 puntos)
+ a. cambiar algunas letras por números
+	palabra = "hola" 
+	en "Ho14"
+
+palabra = "hola"
+nueva = palabra.replace("h", "H").replace("l", "1").replace("a", "4")
+print(nueva) 
+
+ b. remover espacios
+	palabra = "  hola"
+	en "hola"
+
+palabra = "  hola"
+print(palabra.strip())
+
+ c. cambiar mayúsculas y minúsculas
+    palabra = "HoLa"
+	en "hOlA"
+
+palabra = "HoLa"
+print(palabra.swapcase())
+
+ d. poner la primera en mayúscula
+	palabra = "hola"
+	en "Hola"
+
+palabra = "hola"
+print(palabra.capitalize())
+
+4. Explica qué hacen los métodos y da un ejemplo: (2 puntos)
+ a. count() Cuenta cuántas veces aparece una letra, palabra o número dentro de un texto o una lista.
+
+texto = "Mi gato es un gato muy bonito"
+print(texto.count("gato")) 
+resultado # 2
+
+ b. find() devuelve la posición donde empieza lo buscado (se empieza a contar desde 0), si no lo encuentra devuelve -1.
+
+texto = "Hola mundo"
+print(texto.find("mundo"))  resultado # 5
+print(texto.find("xyz"))    resultado # -1
+
+ c. isdigit() devuelve true si el texto tieno solo dígitos, y false si tiene letras, espacios o dígitos 
+
+print("12345".isdigit())     resultado # True
+print("Año 2026".isdigit())  resultado # False
+
+ d. replace() reemplaza una pare del texto por otra
+
+texto = "Me gusta el café"
+print(texto.replace("café", "té"))  # Me gusta el té
+
+
+5. Qué problema tiene declarar estas variables? (1.5 puntos)
+ oración larga = 'hola mundo'
+ palabra = 'hola' 'mundo'
+
+el error que tiene es un espacio en blanco entre hola y mundo, la solución seria poner un guion bajo para unir las palabras
+ palabra = 'hola' 'mundo'
+ 
+
+6. Investigar "fstring": qué son, cómo se usan y un ejemplo. (2.5 puntos)
+
+Los fstrings son una forma de escribir strings que permite insertar variables o expresiones directamente dentro del texto.
+
+nombre = "Mar"
+print(f"Hola {nombre}")
+resultado= Hola Mar
